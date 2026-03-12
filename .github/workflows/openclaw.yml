@@ -14,7 +14,10 @@ jobs:
           node-version: '20'
 
       - name: Install OpenClaw
-        run: npm install -g openclaw
+        run: |
+          npm install -g openclaw
+          npm list -g
 
       - name: Start Gateway
-        run: openclaw gateway
+        run: |
+          npx openclaw gateway
