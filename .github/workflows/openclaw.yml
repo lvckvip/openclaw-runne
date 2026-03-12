@@ -1,19 +1,20 @@
 name: OpenClaw Runner
 
-on: workflow_dispatch: schedule: - cron: “/30  * * *”
+on:
+  workflow_dispatch:
 
-jobs: run-openclaw: runs-on: ubuntu-latest timeout-minutes: 360
+jobs:
+  run-openclaw:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
       - name: Install OpenClaw
-        run: |
-          npm install -g openclaw
+        run: npm install -g openclaw
 
       - name: Start Gateway
-        run: |
-          openclaw gateway
+        run: openclaw gateway
